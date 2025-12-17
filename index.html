@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Benchmark</title>
+    <title>Mounir's Human Benchmark</title>
     <link rel="stylesheet" href="mounircss.css">
 </head>
 <body>
@@ -86,7 +86,7 @@
             </aside>
 
             <main class="main-content">
-                               <!-- Accueil animé -->
+                <!-- Accueil -->
                 <section id="overviewSection" class="section active">
                     <div class="welcome-container">
                         <h1 class="welcome-title">Bienvenue, <span id="welcomeName">Mounir</span> ! 🧠</h1>
@@ -95,6 +95,7 @@
                         <div class="floating-emojis">
                             <span>⚡</span><span>🎯</span><span>⌨️</span><span>🔢</span>
                             <span>🏆</span><span>🚀</span><span>💪</span><span>🌟</span>
+                            <span>🧠</span><span>👁️</span>
                         </div>
                     </div>
 
@@ -111,7 +112,7 @@
                             <div class="stat-icon">🔢</div>
                             <div class="stat-info">
                                 <div class="stat-value" id="bestNumber">--</div>
-                                <div class="stat-label">Niveau maximal (Mémoire)</div>
+                                <div class="stat-label">Niveau max (Mémoire numérique)</div>
                             </div>
                         </div>
                         <div class="stat-card">
@@ -126,6 +127,20 @@
                             <div class="stat-info">
                                 <div class="stat-value" id="bestAim">--</div>
                                 <div class="stat-label">Meilleur score (Précision)</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🧠</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="bestChimp">--</div>
+                                <div class="stat-label">Meilleur niveau (Chimp Test)</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👁️</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="bestVisual">--</div>
+                                <div class="stat-label">Meilleur niveau (Visual Memory)</div>
                             </div>
                         </div>
                     </div>
@@ -155,6 +170,16 @@
                             <h3>Aim Trainer</h3>
                             <p>Entraînez votre précision</p>
                         </div>
+                        <div class="test-card" onclick="startTest('chimp')">
+                            <div class="test-icon">🧠</div>
+                            <h3>Chimp Test</h3>
+                            <p>Mémorisez l'ordre des chiffres</p>
+                        </div>
+                        <div class="test-card" onclick="startTest('visual')">
+                            <div class="test-icon">👁️</div>
+                            <h3>Visual Memory</h3>
+                            <p>Mémorisez les cases allumées</p>
+                        </div>
                     </div>
 
                     <div id="testArea" class="test-fullscreen">
@@ -163,6 +188,8 @@
                         <div id="numberTest" class="test-content"></div>
                         <div id="typingTest" class="test-content"></div>
                         <div id="aimTest" class="test-content"></div>
+                        <div id="chimpTest" class="test-content"></div>
+                        <div id="visualTest" class="test-content"></div>
                     </div>
                 </section>
 
@@ -175,10 +202,12 @@
                         <button class="leaderboard-tab" onclick="showLeaderboardTab('number')">Mémoire</button>
                         <button class="leaderboard-tab" onclick="showLeaderboardTab('typing')">Frappe</button>
                         <button class="leaderboard-tab" onclick="showLeaderboardTab('aim')">Précision</button>
+                        <button class="leaderboard-tab" onclick="showLeaderboardTab('chimp')">Chimp Test</button>
+                        <button class="leaderboard-tab" onclick="showLeaderboardTab('visual')">Visual Memory</button>
                     </div>
 
                     <div class="leaderboard-content" id="leaderboardTable">
-                        <!-- Le classement sera généré ici par JavaScript -->
+                        <!-- Généré par JS -->
                     </div>
                 </section>
 
@@ -208,7 +237,7 @@
                                 <strong id="profileReaction">-- ms</strong>
                             </div>
                             <div class="profile-stat-item">
-                                <span>Meilleur mémoire :</span>
+                                <span>Meilleur mémoire numérique :</span>
                                 <strong id="profileNumber">--</strong>
                             </div>
                             <div class="profile-stat-item">
@@ -218,6 +247,14 @@
                             <div class="profile-stat-item">
                                 <span>Meilleur aim :</span>
                                 <strong id="profileAim">--</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Meilleur Chimp Test :</span>
+                                <strong id="profileChimp">--</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Meilleur Visual Memory :</span>
+                                <strong id="profileVisual">--</strong>
                             </div>
                         </div>
                     </div>
