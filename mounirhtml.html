@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Benchmark</title>
+    <link rel="stylesheet" href="mounircss.css">
+</head>
+<body>
+
+    <!-- Page de Login -->
+    <div id="loginPage" class="page active">
+        <div class="container">
+            <div class="login-box">
+                <h1>🧠 Mounir s'Human Benchmark</h1>
+                <p class="subtitle">Testez vos capacités cognitives</p>
+               
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('login')">Connexion</button>
+                    <button class="tab" onclick="switchTab('register')">Inscription</button>
+                </div>
+
+                <form id="loginForm" class="form active">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Se connecter</button>
+                </form>
+
+                <form id="registerForm" class="form">
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">S'inscrire</button>
+                </form>
+
+                <div class="demo-accounts">
+                    <p><strong>Comptes de démo :</strong></p>
+                    <p>admin@test.com / admin123</p>
+                    <p>user@test.com / user123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboardPage" class="page">
+        <nav class="navbar">
+            <div class="nav-content">
+                <h2>🧠 Human Benchmark</h2>
+                <div class="nav-right">
+                    <span id="userName">Mounir</span>
+                    <button class="btn-secondary" onclick="logout()">Déconnexion</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <div class="menu-item active" onclick="showSection('overview')">
+                    <span>📊</span> Vue d'ensemble
+                </div>
+                <div class="menu-item" onclick="showSection('tests')">
+                    <span>🎮</span> Tests
+                </div>
+                <div class="menu-item" onclick="showSection('leaderboard')">
+                    <span>🏆</span> Classement
+                </div>
+                <div class="menu-item" onclick="showSection('profile')">
+                    <span>👤</span> Profil
+                </div>
+            </aside>
+
+            <main class="main-content">
+                               <!-- Accueil animé -->
+                <section id="overviewSection" class="section active">
+                    <div class="welcome-container">
+                        <h1 class="welcome-title">Bienvenue, <span id="welcomeName">Mounir</span> ! 🧠</h1>
+                        <p class="welcome-message">Prêt à battre ton record aujourd’hui ?</p>
+                        
+                        <div class="floating-emojis">
+                            <span>⚡</span><span>🎯</span><span>⌨️</span><span>🔢</span>
+                            <span>🏆</span><span>🚀</span><span>💪</span><span>🌟</span>
+                        </div>
+                    </div>
+
+                    <h2 style="margin-top:60px;">Tes meilleurs scores</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">⚡</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="bestReaction">-- ms</div>
+                                <div class="stat-label">Meilleur temps de réaction</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔢</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="bestNumber">--</div>
+                                <div class="stat-label">Niveau maximal (Mémoire)</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⌨️</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="bestTyping">-- MPM</div>
+                                <div class="stat-label">Vitesse de frappe maximale</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="bestAim">--</div>
+                                <div class="stat-label">Meilleur score (Précision)</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tests -->
+                <section id="testsSection" class="section">
+                    <h2>Choisissez votre test</h2>
+                    <div class="tests-grid">
+                        <div class="test-card" onclick="startTest('reaction')">
+                            <div class="test-icon">⚡</div>
+                            <h3>Reaction Test</h3>
+                            <p>Testez votre temps de réaction</p>
+                        </div>
+                        <div class="test-card" onclick="startTest('number')">
+                            <div class="test-icon">🔢</div>
+                            <h3>Number Memory</h3>
+                            <p>Mémorisez des nombres</p>
+                        </div>
+                        <div class="test-card" onclick="startTest('typing')">
+                            <div class="test-icon">⌨️</div>
+                            <h3>Typing Test</h3>
+                            <p>Mesurez votre vitesse de frappe</p>
+                        </div>
+                        <div class="test-card" onclick="startTest('aim')">
+                            <div class="test-icon">🎯</div>
+                            <h3>Aim Trainer</h3>
+                            <p>Entraînez votre précision</p>
+                        </div>
+                    </div>
+
+                    <div id="testArea" class="test-fullscreen">
+                        <button class="btn-back" onclick="closeTest()">← Retour aux tests</button>
+                        <div id="reactionTest" class="test-content"></div>
+                        <div id="numberTest" class="test-content"></div>
+                        <div id="typingTest" class="test-content"></div>
+                        <div id="aimTest" class="test-content"></div>
+                    </div>
+                </section>
+
+                <!-- Classement -->
+                <section id="leaderboardSection" class="section">
+                    <h2>🏆 Classement Global</h2>
+                    
+                    <div class="leaderboard-tabs">
+                        <button class="leaderboard-tab active" onclick="showLeaderboardTab('reaction')">Réaction</button>
+                        <button class="leaderboard-tab" onclick="showLeaderboardTab('number')">Mémoire</button>
+                        <button class="leaderboard-tab" onclick="showLeaderboardTab('typing')">Frappe</button>
+                        <button class="leaderboard-tab" onclick="showLeaderboardTab('aim')">Précision</button>
+                    </div>
+
+                    <div class="leaderboard-content" id="leaderboardTable">
+                        <!-- Le classement sera généré ici par JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Profil -->
+                <section id="profileSection" class="section">
+                    <h2>Mon Profil</h2>
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">👤</div>
+                            <div>
+                                <h3 id="profileName">Utilisateur</h3>
+                                <p id="profileEmail">email@example.com</p>
+                            </div>
+                        </div>
+                        <div class="profile-stats">
+                            <h4>Statistiques personnelles</h4>
+                            <div class="profile-stat-item">
+                                <span>Tests complétés :</span>
+                                <strong id="testsCount">0</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Membre depuis :</span>
+                                <strong id="joinDate">--</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Meilleur réaction :</span>
+                                <strong id="profileReaction">-- ms</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Meilleur mémoire :</span>
+                                <strong id="profileNumber">--</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Meilleure frappe :</span>
+                                <strong id="profileTyping">-- MPM</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Meilleur aim :</span>
+                                <strong id="profileAim">--</strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="mounirjs.js"></script>
+</body>
+</html>
