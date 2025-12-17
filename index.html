@@ -95,7 +95,7 @@
                         <div class="floating-emojis">
                             <span>⚡</span><span>🎯</span><span>⌨️</span><span>🔢</span>
                             <span>🏆</span><span>🚀</span><span>💪</span><span>🌟</span>
-                            <span>🧠</span><span>👁️</span>
+                            <span>🧠</span><span>👁️</span><span>📖</span>
                         </div>
                     </div>
 
@@ -143,6 +143,13 @@
                                 <div class="stat-label">Meilleur niveau (Visual Memory)</div>
                             </div>
                         </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📖</div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="bestVerbal">--</div>
+                                <div class="stat-label">Meilleur score (Verbal Memory)</div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -180,6 +187,11 @@
                             <h3>Visual Memory</h3>
                             <p>Mémorisez les cases allumées</p>
                         </div>
+                        <div class="test-card" onclick="startTest('verbal')">
+                            <div class="test-icon">📖</div>
+                            <h3>Verbal Memory</h3>
+                            <p>Devinez si le mot est nouveau ou déjà vu</p>
+                        </div>
                     </div>
 
                     <div id="testArea" class="test-fullscreen">
@@ -190,6 +202,7 @@
                         <div id="aimTest" class="test-content"></div>
                         <div id="chimpTest" class="test-content"></div>
                         <div id="visualTest" class="test-content"></div>
+                        <div id="verbalTest" class="test-content"></div>
                     </div>
                 </section>
 
@@ -204,6 +217,7 @@
                         <button class="leaderboard-tab" onclick="showLeaderboardTab('aim')">Précision</button>
                         <button class="leaderboard-tab" onclick="showLeaderboardTab('chimp')">Chimp Test</button>
                         <button class="leaderboard-tab" onclick="showLeaderboardTab('visual')">Visual Memory</button>
+                        <button class="leaderboard-tab" onclick="showLeaderboardTab('verbal')">Verbal Memory</button>
                     </div>
 
                     <div class="leaderboard-content" id="leaderboardTable">
@@ -255,6 +269,10 @@
                             <div class="profile-stat-item">
                                 <span>Meilleur Visual Memory :</span>
                                 <strong id="profileVisual">--</strong>
+                            </div>
+                            <div class="profile-stat-item">
+                                <span>Meilleur Verbal Memory :</span>
+                                <strong id="profileVerbal">--</strong>
                             </div>
                         </div>
                     </div>
