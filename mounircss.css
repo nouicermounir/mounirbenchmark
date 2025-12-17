@@ -735,3 +735,93 @@ body { -webkit-touch-callout: none; }
 .number-input, .typing-input, input[type="text"], input[type="email"], input[type="password"] {
     user-select: text;
 }
+/* ... tout ton CSS précédent reste identique ... */
+
+/* Verbal Memory Test */
+#verbalWord {
+    font-size: 4em;
+    font-weight: bold;
+    color: #667eea;
+    margin: 60px 0;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+}
+
+#verbalButtons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 40px 0;
+}
+
+.verbal-btn {
+    padding: 25px 60px;
+    font-size: 2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+#verbalNew {
+    background: #2ecc71;
+    color: white;
+}
+
+#verbalNew:hover {
+    background: #27ae60;
+    transform: translateY(-8px);
+}
+
+#verbalSeen {
+    background: #3498db;
+    color: white;
+}
+
+#verbalSeen:hover {
+    background: #2980b9;
+    transform: translateY(-8px);
+}
+
+#verbalLives {
+    font-size: 2.5em;
+    margin: 30px 0;
+    text-align: center;
+    color: #e74c3c;
+}
+
+#verbalScore {
+    font-size: 3em;
+    color: #667eea;
+    text-align: center;
+    margin: 20px 0;
+}   
+
+/* Bloc d'explication commun pour tous les tests */
+.test-explanation {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    border-left: 6px solid #667eea;
+    padding: 25px 30px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+}
+
+.test-explanation strong {
+    color: #667eea;
+    font-size: 1.2em;
+}
